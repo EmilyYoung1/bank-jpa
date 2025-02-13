@@ -1,13 +1,25 @@
 package org.example;
 
+import jakarta.persistence.*;
+
 import java.util.UUID;
 
 import static org.example.AccessType.*;
 
+@Entity
 class AccessKey {
+    @Id
+//    @Column(name="id")
+//    @Column(name="`key`")
     private UUID key;
+    @ManyToOne
     private Account account;
+    @Basic
     private AccessType accessType;
+
+    protected AccessKey() {
+
+    }
 
     public AccessKey(Account account, AccessType accessType) {
         key = UUID.randomUUID();

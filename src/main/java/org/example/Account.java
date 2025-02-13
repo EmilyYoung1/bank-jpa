@@ -1,13 +1,18 @@
 package org.example;
 
+import jakarta.persistence.*;
+
 import java.util.UUID;
 
+@Entity
+@Table(name="accounts")
 class Account {
-    private UUID id;
-    private double balance;
+    @Id
+    UUID id;
+    @Basic(optional = false)
+    double balance;
 
-    Account() {
-        this(0);
+    protected Account() {
     }
 
     Account(double initialBalance) {
