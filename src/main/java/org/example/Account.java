@@ -2,6 +2,7 @@ package org.example;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -11,6 +12,8 @@ class Account {
     UUID id;
     @Basic(optional = false)
     double balance;
+    @OneToMany(mappedBy = "account", fetch=FetchType.LAZY)
+    List<AccessKey> accessKeys;
 
     protected Account() {
     }

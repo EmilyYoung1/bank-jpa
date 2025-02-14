@@ -13,7 +13,7 @@ import java.util.UUID;
 public class Main {
     public static void main(String[] args) {
         Bank bank = new Bank();
-        Teller teller = new Teller(bank);
+        Teller teller = bank.getTeller();
         UUID account = teller.createAccount(100);
         String url = "jdbc:h2:./test";
 //        try {
@@ -77,7 +77,8 @@ public class Main {
             em.getTransaction().commit();
             EntityManager em2 = managerFactory.createEntityManager();
             Account acc2 = em2.find(Account.class, acc.getId());
-            acc.equals(acc2);
+//            em2.close();
+            System.out.println(acc2.accessKeys.get(0));
         } catch (Exception e) {
             System.out.println(e.getMessage());
             throw e;

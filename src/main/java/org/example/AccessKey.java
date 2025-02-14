@@ -9,8 +9,8 @@ import static org.example.AccessType.*;
 @Entity
 class AccessKey {
     @Id
-//    @Column(name="id")
-//    @Column(name="`key`")
+    @Column(name="id")
+//    @Column(name="\"key\"")
     private UUID key;
     @ManyToOne
     private Account account;

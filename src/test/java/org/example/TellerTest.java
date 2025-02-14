@@ -1,14 +1,34 @@
 package org.example;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class TellerTest {
-    Bank bank = new Bank();
-    Teller teller = new Teller(bank);
+    static Bank bank;
+    Teller teller;
+
+    @BeforeAll
+    static void setupOnce() {
+        bank = new Bank();
+    }
+
+    @AfterAll
+    static void teardownOnce() {
+        bank.close();
+    }
+
+    @BeforeEach
+    void setUp() {
+        teller = bank.getTeller();
+    }
+
+    @AfterEach
+    void teardown() {
+        teller.close();
+    }
 
     @Test
     void canCreateAccountWithInitialBalance() throws BankException {
