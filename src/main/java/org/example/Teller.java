@@ -13,7 +13,7 @@ import static org.example.AccessType.OWNER;
 // 4. Move entity manager stuff to Bank/Teller
 
 public class Teller implements AutoCloseable {
-    private final EntityManager em;
+    protected final EntityManager em;
 
     public Teller(EntityManager em) {
         this.em = em;

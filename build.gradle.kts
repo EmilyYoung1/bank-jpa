@@ -29,6 +29,10 @@ dependencies {
     // Maybe not needed?
     //    runtimeOnly("org.hibernate:hibernate-entitymanager:6.6.7.Final")
     //    implementation("javax.xml.bind:jaxb-api:2.3.1")
+    testImplementation("io.cucumber:cucumber-java:7.21.1")
+    testImplementation("io.cucumber:cucumber-junit:7.21.1")
+    testImplementation("io.cucumber:cucumber-junit-platform-engine:latest.release")
+    testImplementation("org.junit.platform:junit-platform-suite:latest.release")
 
 }
 

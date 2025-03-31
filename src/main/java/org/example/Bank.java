@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.UUID;
 
 public class Bank implements AutoCloseable {
-    private final EntityManagerFactory managerFactory;
+    protected final EntityManagerFactory managerFactory;
 
     public Bank() {
         managerFactory = Persistence.createEntityManagerFactory("default");
