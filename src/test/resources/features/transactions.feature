@@ -6,4 +6,6 @@ Feature: Owner can perform transactions
     And an access key key1 for acc1 with access type owner
     And an access key key2 for acc2 with access type owner
 
-  Scenario:
+  Scenario: Can withdraw from account
+    When I withdraw $100 using access key key1
+    Then The transaction was OK

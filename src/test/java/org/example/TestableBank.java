@@ -27,5 +27,13 @@ public class TestableBank extends Bank {
             em.getTransaction().commit();
             return account;
         }
+
+        AccessKey makeRawAccessKey(Account account, AccessType accessType) {
+            AccessKey accessKey = new AccessKey(account, accessType);
+            em.getTransaction().begin();
+            em.persist(accessKey);
+            em.getTransaction().commit();
+            return accessKey;
+        }
     }
 }
